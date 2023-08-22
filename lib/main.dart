@@ -55,14 +55,14 @@ class _HomePageState extends State<HomePage> {
               child:  TextField(
                 obscureText: passwordvisible,
                 decoration: InputDecoration(
-                  fillColor: Color.fromARGB(255, 54, 53, 53),
+                  fillColor: const Color.fromARGB(255, 54, 53, 53),
                   filled:true,
                   contentPadding: const EdgeInsets.symmetric(vertical: 5,horizontal: 18),
                   border: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.black),
                   ),
                   hintText: 'Password',
-                  hintStyle: TextStyle(fontSize: 14,color: Color.fromARGB(255, 120, 119, 119)),
+                  hintStyle: const TextStyle(fontSize: 14,color: Color.fromARGB(255, 120, 119, 119)),
                   suffixIcon: 
                   IconButton(onPressed: (){
                     setState(() {
