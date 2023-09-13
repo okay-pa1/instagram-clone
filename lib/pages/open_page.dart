@@ -33,9 +33,7 @@ class _OpenPageState extends State<OpenPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Colors.black,
-      ),
+      decoration: const BoxDecoration(),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar( 
@@ -51,36 +49,43 @@ class _OpenPageState extends State<OpenPage> {
           icon: const Icon(Icons.chat_outlined)),
         ],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          iconSize: 30,
-          unselectedItemColor: Colors.grey,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label:'Home',
-              backgroundColor: Colors.black,),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Search',
-              backgroundColor: Colors.black,),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add_box_outlined),
-              label: 'Add post',
-              backgroundColor: Colors.black,),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.video_collection_rounded),
-              label: 'reels',
-              backgroundColor: Colors.black,),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.sentiment_neutral),
-              label: 'profile',
-              backgroundColor: Colors.black,)
+        body: _widgetOptions.elementAt(_selectedIndex),
+        bottomNavigationBar: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            const Divider(color: Colors.grey,),
+            BottomNavigationBar(
+              iconSize: 30,
+              unselectedItemColor: Colors.grey,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label:'Home',
+                  backgroundColor: Colors.black,),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.search),
+                  label: 'Search',
+                  backgroundColor: Colors.black,),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.add_box_outlined),
+                  label: 'Add post',
+                  backgroundColor: Colors.black,),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.video_collection_rounded),
+                  label: 'reels',
+                  backgroundColor: Colors.black,),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.sentiment_neutral),
+                  label: 'profile',
+                  backgroundColor: Colors.black,)
+              ],
+              currentIndex: _selectedIndex,
+              selectedItemColor: Colors.white,
+              onTap: _onItemTapped,
+            ),
           ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.white,
-          onTap: _onItemTapped,
         ),
       ),
     );
